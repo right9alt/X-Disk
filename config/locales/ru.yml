@@ -1,0 +1,22 @@
+ru:
+  activerecord:
+    models:
+      user: "Пользователь"
+    attributes:
+      user:
+        login: "Логин"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+    errors:
+      models:
+        user:
+          attributes:
+            login:
+              taken: "уже занят"
+            password:
+              blank: "не может быть пустым"
+              too_short: "слишком короткий (минимум %{count} символов)"
+              invalid: "недопустимый формат"
+            password_confirmation:
+              blank: "не может быть пустым"
+              confirmation: "не совпадает с паролем"

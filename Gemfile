@@ -46,6 +46,7 @@ gem "bootsnap", require: false
 gem 'bootstrap', '~> 5.0'
 gem 'sassc-rails'
 gem 'sass-rails'
+gem 'jquery-rails'
 #for testing
 gem 'rspec-rails'
 

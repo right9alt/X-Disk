@@ -3,4 +3,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  #login routes
+  resources :upload
+  root 'sessions#new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  #register routes
+  get '/register' => 'users#new'
+  post '/users' => 'users#create'
+
+  get '/storage' => 'storage#index'
 end
