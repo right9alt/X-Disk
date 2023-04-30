@@ -5,28 +5,30 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+/X-Disk/.bundle
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+/X-Disk/log/*
+/X-Disk/tmp/*
+!/X-Disk/log/.keep
+!/X-Disk/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-/tmp/pids/*
-!/tmp/pids/
-!/tmp/pids/.keep
+/X-Disk/tmp/pids/*
+!/X-Disk/tmp/pids/
+!/X-Disk/tmp/pids/.keep
 
 # Ignore uploaded files in development.
-/storage/*
-!/storage/.keep
-/tmp/storage/*
-!/tmp/storage/
-!/tmp/storage/.keep
+/X-Disk/storage/*
+!/X-Disk/storage/.keep
+/X-Disk/tmp/storage/*
+!/X-Disk/tmp/storage/
+!/X-Disk/tmp/storage/.keep
 
-/public/assets
-/public/uploads
+/X-Disk/public/assets
+/X-Disk/public/uploads/*
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+/X-Disk/config/master.key
+.DS_Store
+.docker/volumes
