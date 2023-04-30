@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
+  before_action :is_auth?, only: [:create]
   def new
-    is_auth?
     @user = User.new
   end
 
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to storage_path, notice: 'User was successfully created.'
+      redirect_to storage_path, notice: 'Вы успешно зарегестрировались.'
     else
       if @user.errors.any?
         flash.now[:error] = @user.errors.full_messages.join(", ")

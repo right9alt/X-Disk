@@ -17,4 +17,12 @@ class User < ApplicationRecord
   
   # Пароль должен совпадать в полях "пароль" и "пароль повторно" при отправке формы
   validates_confirmation_of :password
+
+  has_many :uploads, dependent: :destroy
+
+  # Проверка доступного места для пользователя
+  def available_space
+    10.megabytes - self.uploads.sum { |upload| upload.file.size }
+
+  end
 end

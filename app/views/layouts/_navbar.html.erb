@@ -5,10 +5,27 @@
         <li class="nav-item mr-3">
           <%= "#{current_user.login}" %>
         </li>
-        <li class="nav-item mr-3">
-          <%= "Доступно #{10}Mb" %>
+        &nbsp;
+        <li class="nav-item mr-3" id="available-space" data-space="<%= current_user.available_space %>">
+          <%= "Доступно #{number_to_human_size(current_user.available_space)}" %>
         </li>
+        &nbsp;
         <li class="nav-item">
+          <%= form_for @upload, url: uploads_path, html: { multipart: true } do |f| %>
+            <% if flash[:alert].present? %>
+              <div class="alert alert-danger">
+                <%= flash[:alert] %>
+              </div>
+            <% end %>
+            
+            <div class="field">
+              <%= f.file_field :file, id: "upload-file"  %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Загрузить" %>
+            </div>
+          <% end %>
         </li>
         <% if flash[:error].present? %>
           <li class="nav-item text-danger">

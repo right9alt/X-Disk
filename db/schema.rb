@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_28_173351) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_29_084132) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "uploads", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_uploads_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "login"
@@ -22,4 +30,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_28_173351) do
     t.index ["login"], name: "index_users_on_login", unique: true
   end
 
+  add_foreign_key "uploads", "users"
 end

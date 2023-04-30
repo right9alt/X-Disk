@@ -1,11 +1,7 @@
 class SessionsController < ApplicationController
-
-  def new
-    is_auth?
-  end
+  before_action :is_auth?, only: [:create]
 
   def create
-
     user = User.find_by(login: params[:login])
 
     if user && user.authenticate(params[:password])

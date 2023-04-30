@@ -16,7 +16,7 @@ ru:
             password:
               blank: "не может быть пустым"
               too_short: "слишком короткий (минимум %{count} символов)"
-              invalid: "недопустимый формат"
+              invalid: "имеет недопустимый формат"
             password_confirmation:
               blank: "не может быть пустым"
               confirmation: "не совпадает с паролем"

@@ -1,0 +1,24 @@
+<div class="container">
+  <% unless @uploads.present? %>
+  <h1>ДИСК ПУСТ</h1>
+  <% end %>
+  <% @uploads.each do |upload| %>
+    <%filename = upload.decode_file_name %>
+    <div class="card">
+      <% case File.extname(upload.file.to_s) %>
+        <% when ".xlsx" %>
+          <%= image_tag "xlsx.png", width: 100, height: 100 %>
+        <% when ".zip" %>
+          <%= image_tag "zip.png", width: 100, height: 100 %>
+        <% when ".docx" %>
+          <%= image_tag "docx.png", width: 100, height: 100 %>
+      <% end %>
+
+      <div class="card-body">
+        <h5 class="card-title"><%= filename %></h5>
+            <p class="card-text"><%= link_to "Скачать", upload.file.url, class: "btn btn-sm btn-outline-secondary" %></p>
+            <p class="card-text"><%= link_to 'Удалить', upload, data: {turbo_method: :delete, turbo_confirm: "Удалить #{File.basename(upload.file.to_s, '.*')}?"}, class: "btn btn-sm btn-outline-danger" %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
