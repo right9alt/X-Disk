@@ -18,9 +18,6 @@ function upload_process(){
     }
     var fileSize = fileInput.files[0].size; // размер файла в байтах
     var availableSpace = document.getElementById("available-space").dataset.space;
-    console.log("Размер файла " + fileSize)
-    console.log("Доступное место " + availableSpace)
-    console.log(document.getElementById("available-space"))
     if (fileSize > availableSpace) {
       alert("Недостаточно места на диске для загрузки файла.");
 
